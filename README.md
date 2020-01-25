@@ -19,7 +19,7 @@ FLASK_APP=endpoints.py
 FLASK_ENV=development
 ```
 
-Locally, I also haave a `.env` file, that is not seen in this repo, because it is [`.gitignored`](https://github.com/drewwyatt/flask-env-example/blob/master/.gitignore#L2). It looks like this:
+Locally, I also have a `.env` file, that is not seen in this repo, because it is [`.gitignored`](https://github.com/drewwyatt/flask-env-example/blob/master/.gitignore#L2). It looks like this:
 
 ```dotenv
 MY_SECRET_VARIABLE="This is a secret variable set on my local machine"
@@ -47,6 +47,10 @@ def index():
 Here, we are importing and using [`os.getenv`](https://docs.python.org/3/library/os.html#os.getenv) to access the environment variables set in `.flaskenv` and `.env`.
 
 If I run this locally, this is what I see when visiting [`http://localhost:5000/`](http://localhost:5000/):
+
+![Local Output](https://i.imgur.com/KrVjveC.png)
+
+The especially interesting thing to notice here is that the values defined in `.env` (`MY_SECRET_VARIABLE` and `SMTP_PASSWORD`) are present without having to expose those values to *everyone* that has access to the source code. (note that, in most circumstances, we would probably not expose these values via an unauthentiated `GET` response)
 
 ## References
 
